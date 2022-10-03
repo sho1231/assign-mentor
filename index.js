@@ -4,11 +4,13 @@ const mongo = require('./Shared/mongo');
 const students = require('./Routes/student.routes');
 const mentors= require('./Routes/mentors.routes');
 const cors=require('cors');
+const routes = require('./Routes/mentors.routes');
 (async () => {
     try {
         await mongo.connect();
         app.use(cors());
         app.use(express.json());
+        app.get("/",()=>res.send("Running"))
         app.use("/",students);
         app.use("/",mentors);
         app.listen(5001, () => console.log('listening on port 5001'));
