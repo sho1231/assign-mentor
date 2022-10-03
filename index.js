@@ -13,7 +13,7 @@ const dotenv = require('dotenv');
         dotenv.config();
         app.use(cors());
         app.use(express.json());
-        app.get("/",()=>res.send("Running"))
+        app.get("/",(req,res)=>res.send("Running"))
         app.use("/",students);
         app.use("/",mentors);
         app.listen(process.env.PORT, () => console.log('listening on port',process.env.PORT));
